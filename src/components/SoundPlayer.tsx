@@ -5,16 +5,20 @@ interface SoundConfig {
   name: string
   emoji: string
   description: string
-  category: 'noise' | 'frequency' | 'melody'
+  category: 'noise' | 'harmony' | 'melody'
 }
 
 const sounds: SoundConfig[] = [
   { id: 'brown-noise', name: 'Ruído Marrom', emoji: '🟤', description: 'Suave e envolvente', category: 'noise' },
-  { id: 'freq-432', name: '432 Hz', emoji: '🎵', description: 'Relaxamento natural', category: 'frequency' },
-  { id: 'freq-528', name: '528 Hz', emoji: '🎶', description: 'Cura e transformação', category: 'frequency' },
-  { id: 'binaural-theta', name: 'Binaural Theta', emoji: '🧠', description: 'Use fones', category: 'frequency' },
-  { id: 'bells', name: 'Sinos', emoji: '🔔', description: 'Sinos tibetanos', category: 'melody' },
-  { id: 'meditation-melody', name: 'Meditação', emoji: '🎼', description: 'Melodia suave', category: 'melody' },
+  { id: 'harmony-432', name: 'Harmonia 432', emoji: '🎵', description: 'Pad rico e musical', category: 'harmony' },
+  { id: 'harmony-528', name: 'Harmonia 528', emoji: '🎶', description: 'Frequência de cura', category: 'harmony' },
+  { id: 'binaural-alpha', name: 'Binaural Alpha', emoji: '🧠', description: 'Use fones · 10Hz', category: 'harmony' },
+  { id: 'bells', name: 'Sinos', emoji: '🔔', description: 'Tibetanos com reverb', category: 'melody' },
+  { id: 'melody-serene', name: 'Noite Serena', emoji: '🌙', description: 'Menor, muito lenta', category: 'melody' },
+  { id: 'melody-dawn', name: 'Amanhecer', emoji: '🌅', description: 'Tons quentes', category: 'melody' },
+  { id: 'melody-flow', name: 'Fluir', emoji: '🌊', description: 'Arpejos suaves', category: 'melody' },
+  { id: 'melody-space', name: 'Espaço', emoji: '🌌', description: 'Drones espaciais', category: 'melody' },
+  { id: 'melody-drift', name: 'Flutuar', emoji: '☁️', description: 'Melodia etérea', category: 'melody' },
 ]
 
 export default function SoundPlayer() {
@@ -87,7 +91,7 @@ export default function SoundPlayer() {
             </div>
 
             {/* Sound categories */}
-            <div className="space-y-4">
+            <div className="space-y-5">
               {/* Noise */}
               <div>
                 <p className="text-xs text-slate-600 uppercase tracking-wider mb-2 px-1">Ruído</p>
@@ -103,11 +107,11 @@ export default function SoundPlayer() {
                 </div>
               </div>
 
-              {/* Frequencies */}
+              {/* Harmonies */}
               <div>
-                <p className="text-xs text-slate-600 uppercase tracking-wider mb-2 px-1">Frequências</p>
+                <p className="text-xs text-slate-600 uppercase tracking-wider mb-2 px-1">Harmonias</p>
                 <div className="grid grid-cols-2 gap-2">
-                  {sounds.filter(s => s.category === 'frequency').map(sound => (
+                  {sounds.filter(s => s.category === 'harmony').map(sound => (
                     <SoundButton
                       key={sound.id}
                       sound={sound}

@@ -1,7 +1,5 @@
-type Screen = 'home' | 'breathing' | 'visual' | 'sounds'
-
 interface HomeProps {
-  onNavigate: (screen: Screen) => void
+  onNavigate: (screen: 'home' | 'breathing' | 'visual') => void
 }
 
 export default function Home({ onNavigate }: HomeProps) {
@@ -22,7 +20,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <span className="text-purple-300">a</span>
           <span className="text-indigo-300">x</span>
         </h1>
-        <p className="text-sm text-slate-500 font-light">respira. foca. mergulha.</p>
+        <p className="text-sm text-slate-500 font-light">respira · foca · mergulha</p>
       </div>
 
       {/* 3 Steps */}
@@ -58,30 +56,21 @@ export default function Home({ onNavigate }: HomeProps) {
             <span className="ml-auto text-slate-600 group-active:text-slate-400">→</span>
           </div>
         </button>
+      </div>
 
-        <button
-          onClick={() => onNavigate('sounds')}
-          className="w-full p-5 rounded-2xl bg-gradient-to-r from-violet-500/10 to-violet-500/5 border border-violet-500/20 active:scale-[0.98] transition-all duration-200 group"
-        >
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center text-xl group-active:bg-violet-500/30 transition">
-              🎧
-            </div>
-            <div className="text-left">
-              <p className="text-slate-200 font-light">Mergulhar</p>
-              <p className="text-xs text-slate-500">Sons & frequências</p>
-            </div>
-            <span className="ml-auto text-slate-600 group-active:text-slate-400">→</span>
-          </div>
-        </button>
+      {/* Hint about sounds */}
+      <div className="relative z-10 mt-10 text-center px-6">
+        <p className="text-xs text-slate-600">
+          🎧 Sons disponíveis em qualquer tela — toque no botão flutuante
+        </p>
       </div>
 
       {/* SOS Button */}
       <button
         onClick={() => onNavigate('breathing')}
-        className="relative z-10 mt-12 px-8 py-3 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-sm active:bg-indigo-500/30 transition"
+        className="relative z-10 mt-6 px-8 py-3 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-sm active:bg-indigo-500/30 transition"
       >
-        ⚡ SOS — Respiração rápida (1 min)
+        ⚡ SOS — Respiração rápida
       </button>
     </div>
   )
